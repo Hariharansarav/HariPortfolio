@@ -2,8 +2,12 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { Inter } from "next/font/google";
 
-const navLinks = ["Projects", "Internship", "About", "Contact"];
+const inter = Inter({ subsets: ["latin"] });
+
+const navLinks = [ "About","Projects","Internship","Contact"];
 
 export default function Navbar() {
   const [active, setActive] = useState(null);
@@ -17,39 +21,21 @@ export default function Navbar() {
         {/* Logo + Name */}
         <div className="flex items-center gap-3">
           {/* HS Monogram Icon */}
-          <div
-            className="flex items-center justify-center rounded-lg w-9 h-9"
-            style={{ background: "#2d2460" }}
-          >
-            <svg
-              width="22"
-              height="18"
-              viewBox="0 0 22 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {/* H */}
-              <path
-                d="M2 2V16M2 9H8M8 2V16"
-                stroke="#f5d9cc"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              {/* S */}
-              <path
-                d="M13 4.5C13 3.12 14.12 2 15.5 2H19C19 2 20 2 20 3.5C20 5 19 5.5 17 6C15 6.5 13 7 13 9C13 11 14.5 11.5 16 11.5H19.5"
-                stroke="#f5d9cc"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
+          <div className="flex items-center justify-center">
+
+            <Image 
+            src="/Image/HS.png"
+            alt = "Hariharan logo"
+            width={40}
+            height={40}
+            className="object-contain"
+          
+            />
+            </div>
 
           <span
             className="font-bold tracking-widest text-sm"
-            style={{ color: "#2d2460", fontFamily: "'Trebuchet MS', sans-serif", letterSpacing: "0.15em" }}
+            style={{ color: "#2d2460", fontFamily: "Inter", letterSpacing: "0.15em" }}
           >
             HARIHARAN S
           </span>
@@ -68,7 +54,7 @@ export default function Navbar() {
                   style={{
                     color: "#2d2460",
                     background: isActive ? "#f0b97a" : "transparent",
-                    fontFamily: "'Trebuchet MS', sans-serif",
+                    fontFamily: "Inter",
                     fontWeight: isActive ? 600 : 500,
                     boxShadow: isActive
                       ? "0 2px 8px 0 rgba(240,185,122,0.35)"
